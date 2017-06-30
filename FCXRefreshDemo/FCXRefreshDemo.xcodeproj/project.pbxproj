@@ -15,8 +15,6 @@
 		8A85F7F61F05DCDA007425A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A85F7F41F05DCDA007425A7 /* LaunchScreen.storyboard */; };
 		8A85F7FF1F064946007425A7 /* RefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A85F7FE1F064946007425A7 /* RefreshTableViewController.m */; };
 		8A85F8021F064963007425A7 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A85F8011F064963007425A7 /* TableViewController.m */; };
-		8A85F8051F064D56007425A7 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A85F8031F064D56007425A7 /* blueArrow.png */; };
-		8A85F8061F064D56007425A7 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A85F8041F064D56007425A7 /* blueArrow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +32,6 @@
 		8A85F7FE1F064946007425A7 /* RefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTableViewController.m; sourceTree = "<group>"; };
 		8A85F8001F064963007425A7 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		8A85F8011F064963007425A7 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		8A85F8031F064D56007425A7 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
-		8A85F8041F064D56007425A7 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
 		D299ECA78BAB7EE7E96E2F0B /* libPods-FCXRefreshDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FCXRefreshDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,8 +68,6 @@
 		8A85F7E51F05DCDA007425A7 /* FCXRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
-				8A85F8031F064D56007425A7 /* blueArrow.png */,
-				8A85F8041F064D56007425A7 /* blueArrow@2x.png */,
 				8A85F7E91F05DCDA007425A7 /* AppDelegate.h */,
 				8A85F7EA1F05DCDA007425A7 /* AppDelegate.m */,
 				8A85F8001F064963007425A7 /* TableViewController.h */,
@@ -178,9 +172,7 @@
 			files = (
 				8A85F7F61F05DCDA007425A7 /* LaunchScreen.storyboard in Resources */,
 				8A85F7F31F05DCDA007425A7 /* Assets.xcassets in Resources */,
-				8A85F8061F064D56007425A7 /* blueArrow@2x.png in Resources */,
 				8A85F7F11F05DCDA007425A7 /* Main.storyboard in Resources */,
-				8A85F8051F064D56007425A7 /* blueArrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

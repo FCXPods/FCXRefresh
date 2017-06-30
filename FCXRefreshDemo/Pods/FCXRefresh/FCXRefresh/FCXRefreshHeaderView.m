@@ -144,7 +144,7 @@
 - (void)autoRefresh {
     self.refreshState = FCXRefreshStateLoading;
     [UIView animateWithDuration:.2 animations:^{
-       _scrollView.contentOffset = CGPointMake(0, -FCXHandingOffsetHeight - _scrollViewOriginalEdgeInsets.top);
+        _scrollView.contentOffset = CGPointMake(0, -FCXHandingOffsetHeight - _scrollViewOriginalEdgeInsets.top);
     } completion:^(BOOL finished) {
         self.refreshState = FCXRefreshStateLoading;
     }];
