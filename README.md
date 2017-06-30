@@ -49,10 +49,6 @@ _refreshFooterView.pullingPercentHandler = ^(CGFloat pullingPercent) {
 };
 ```
 显示效果：
-![image](https://github.com/FCXPods/FCXRefresh/FCXRefreshDemo/refreshHome.png)
-![image](https://github.com/FCXPods/FCXRefresh/FCXRefreshDemo/refreshGif.gif)
-
-![](refreshHome.png)
 ![](refreshGif.gif)
 
 
