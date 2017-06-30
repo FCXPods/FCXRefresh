@@ -4,10 +4,13 @@
 * 自动上下拉刷新
 * 上拉无更多数据控制
 * 上下拉百分比显示
+* 自定义上下拉动画
 
 ## 如何导入
 * 1.手动导入
-  把FCXRefresh文件夹导入即可.
+```objc
+  把FCXRefresh文件夹导入即可
+```
 * 2.使用CocoaPods
 ```objc
   pod 'FCXRefresh'
@@ -30,7 +33,7 @@ _refreshFooterView = [self.tableView addFooterWithRefreshHandler:^(FCXRefreshBas
 [weakSelf loadMoreAction];
 }];
 ```
-自动上下拉刷新
+自动上下拉刷新设置
 ```objc
 [_refreshHeaderView autoRefresh];
 _refreshFooterView.autoLoadMore = YES;
@@ -38,11 +41,11 @@ _refreshFooterView.autoLoadMore = YES;
 上下拉百分比显示
 ```objc
 _refreshHeaderView.pullingPercentHandler = ^(CGFloat pullingPercent) {
-headerPercentLabel.text = [NSString stringWithFormat:@"%.2f%%", pullingPercent * 100];
+    headerPercentLabel.text = [NSString stringWithFormat:@"%.2f%%", pullingPercent * 100];
 };
 
 _refreshFooterView.pullingPercentHandler = ^(CGFloat pullingPercent) {
-footerPercentLabel.text = [NSString stringWithFormat:@"%.2f%%", pullingPercent * 100];
+    footerPercentLabel.text = [NSString stringWithFormat:@"%.2f%%", pullingPercent * 100];
 };
 ```
 显示效果：
