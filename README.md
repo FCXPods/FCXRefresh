@@ -1,19 +1,19 @@
 # FCXRefresh
-常用的上下拉刷新功能都支持可自定义，只需简单的两三行代码即可完成.
-*普通上下拉刷新
-*自动上下拉刷新
-*上拉无更多数据控制
-*上下拉百分比显示
+常用的上下拉刷新功能都支持可自定义，只需简单的两三行代码即可完成，主要支持以下功能：
+* 普通上下拉刷新
+* 自动上下拉刷新
+* 上拉无更多数据控制
+* 上下拉百分比显示
 
-##如何导入
-1.手动导入
+## 如何导入
+* 1.手动导入
   把FCXRefresh文件夹导入即可.
-2.使用CocoaPods
+* 2.使用CocoaPods
 ```objc
   pod 'FCXRefresh'
 ```
 
-##如何使用
+## 如何使用
 包含头文件
 ```objc
 #import "UIScrollView+FCXRefresh.h"
@@ -46,6 +46,7 @@ footerPercentLabel.text = [NSString stringWithFormat:@"%.2f%%", pullingPercent *
 };
 ```
 显示效果：
+
 ![](refreshHome.png)
 ![](refreshGif.gif)
 
