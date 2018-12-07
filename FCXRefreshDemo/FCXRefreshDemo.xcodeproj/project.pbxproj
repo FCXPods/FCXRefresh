@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		67090BD7C6161525D6F84763 /* libPods-FCXRefreshDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D299ECA78BAB7EE7E96E2F0B /* libPods-FCXRefreshDemo.a */; };
+		19F39C0E21BA635900C4F38E /* fcx_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F39C0621BA635900C4F38E /* fcx_arrow@2x.png */; };
+		19F39C0F21BA635900C4F38E /* FCXRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C0721BA635900C4F38E /* FCXRefreshFooterView.m */; };
+		19F39C1021BA635900C4F38E /* UIScrollView+FCXRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C0921BA635900C4F38E /* UIScrollView+FCXRefresh.m */; };
+		19F39C1121BA635900C4F38E /* FCXRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C0A21BA635900C4F38E /* FCXRefreshHeaderView.m */; };
+		19F39C1221BA635900C4F38E /* FCXRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C0C21BA635900C4F38E /* FCXRefreshBaseView.m */; };
+		19F39C1521BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C1421BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m */; };
 		8A85F7E81F05DCDA007425A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A85F7E71F05DCDA007425A7 /* main.m */; };
 		8A85F7EB1F05DCDA007425A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A85F7EA1F05DCDA007425A7 /* AppDelegate.m */; };
 		8A85F7F11F05DCDA007425A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A85F7EF1F05DCDA007425A7 /* Main.storyboard */; };
@@ -18,8 +23,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		048A1AD8CB3E2FC7007CEB04 /* Pods-FCXRefreshDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCXRefreshDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FCXRefreshDemo/Pods-FCXRefreshDemo.release.xcconfig"; sourceTree = "<group>"; };
-		869A5A7D084822DEEAAEE597 /* Pods-FCXRefreshDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCXRefreshDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FCXRefreshDemo/Pods-FCXRefreshDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		19F39C0521BA635900C4F38E /* FCXRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCXRefreshHeaderView.h; sourceTree = "<group>"; };
+		19F39C0621BA635900C4F38E /* fcx_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fcx_arrow@2x.png"; sourceTree = "<group>"; };
+		19F39C0721BA635900C4F38E /* FCXRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshFooterView.m; sourceTree = "<group>"; };
+		19F39C0821BA635900C4F38E /* FCXRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCXRefreshBaseView.h; sourceTree = "<group>"; };
+		19F39C0921BA635900C4F38E /* UIScrollView+FCXRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+FCXRefresh.m"; sourceTree = "<group>"; };
+		19F39C0A21BA635900C4F38E /* FCXRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshHeaderView.m; sourceTree = "<group>"; };
+		19F39C0B21BA635900C4F38E /* FCXRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCXRefreshFooterView.h; sourceTree = "<group>"; };
+		19F39C0C21BA635900C4F38E /* FCXRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshBaseView.m; sourceTree = "<group>"; };
+		19F39C0D21BA635900C4F38E /* UIScrollView+FCXRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FCXRefresh.h"; sourceTree = "<group>"; };
+		19F39C1321BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCXRefreshDotAnimationHeaderView.h; sourceTree = "<group>"; };
+		19F39C1421BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshDotAnimationHeaderView.m; sourceTree = "<group>"; };
 		8A85F7E31F05DCDA007425A7 /* FCXRefreshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCXRefreshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A85F7E71F05DCDA007425A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A85F7E91F05DCDA007425A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,7 +46,6 @@
 		8A85F7FE1F064946007425A7 /* RefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTableViewController.m; sourceTree = "<group>"; };
 		8A85F8001F064963007425A7 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		8A85F8011F064963007425A7 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		D299ECA78BAB7EE7E96E2F0B /* libPods-FCXRefreshDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FCXRefreshDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,19 +53,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67090BD7C6161525D6F84763 /* libPods-FCXRefreshDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19F39C0421BA635900C4F38E /* FCXRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				19F39C0621BA635900C4F38E /* fcx_arrow@2x.png */,
+				19F39C0821BA635900C4F38E /* FCXRefreshBaseView.h */,
+				19F39C0C21BA635900C4F38E /* FCXRefreshBaseView.m */,
+				19F39C0B21BA635900C4F38E /* FCXRefreshFooterView.h */,
+				19F39C0721BA635900C4F38E /* FCXRefreshFooterView.m */,
+				19F39C0521BA635900C4F38E /* FCXRefreshHeaderView.h */,
+				19F39C0A21BA635900C4F38E /* FCXRefreshHeaderView.m */,
+				19F39C1321BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.h */,
+				19F39C1421BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m */,
+				19F39C0D21BA635900C4F38E /* UIScrollView+FCXRefresh.h */,
+				19F39C0921BA635900C4F38E /* UIScrollView+FCXRefresh.m */,
+			);
+			name = FCXRefresh;
+			path = ../../FCXRefresh;
+			sourceTree = "<group>";
+		};
 		8A85F7DA1F05DCDA007425A7 = {
 			isa = PBXGroup;
 			children = (
 				8A85F7E51F05DCDA007425A7 /* FCXRefreshDemo */,
 				8A85F7E41F05DCDA007425A7 /* Products */,
-				BE5BC8D693E15474AED1A7FB /* Pods */,
 				EA6C8EAED18EFDCCC5FC7697 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +98,7 @@
 		8A85F7E51F05DCDA007425A7 /* FCXRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
+				19F39C0421BA635900C4F38E /* FCXRefresh */,
 				8A85F7E91F05DCDA007425A7 /* AppDelegate.h */,
 				8A85F7EA1F05DCDA007425A7 /* AppDelegate.m */,
 				8A85F8001F064963007425A7 /* TableViewController.h */,
@@ -91,19 +122,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BE5BC8D693E15474AED1A7FB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				869A5A7D084822DEEAAEE597 /* Pods-FCXRefreshDemo.debug.xcconfig */,
-				048A1AD8CB3E2FC7007CEB04 /* Pods-FCXRefreshDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		EA6C8EAED18EFDCCC5FC7697 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D299ECA78BAB7EE7E96E2F0B /* libPods-FCXRefreshDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,12 +136,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A85F7FA1F05DCDA007425A7 /* Build configuration list for PBXNativeTarget "FCXRefreshDemo" */;
 			buildPhases = (
-				E9BB9CC7CAAF0E7D74726AD7 /* [CP] Check Pods Manifest.lock */,
 				8A85F7DF1F05DCDA007425A7 /* Sources */,
 				8A85F7E01F05DCDA007425A7 /* Frameworks */,
 				8A85F7E11F05DCDA007425A7 /* Resources */,
-				32EB770AFF8C6C22E5390730 /* [CP] Embed Pods Frameworks */,
-				65396785E81C8DBA47A2ED16 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -142,7 +160,7 @@
 				TargetAttributes = {
 					8A85F7E21F05DCDA007425A7 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = DLHH8HAF9C;
+						DevelopmentTeam = V5S25J9BX6;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -170,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19F39C0E21BA635900C4F38E /* fcx_arrow@2x.png in Resources */,
 				8A85F7F61F05DCDA007425A7 /* LaunchScreen.storyboard in Resources */,
 				8A85F7F31F05DCDA007425A7 /* Assets.xcassets in Resources */,
 				8A85F7F11F05DCDA007425A7 /* Main.storyboard in Resources */,
@@ -178,63 +197,20 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		32EB770AFF8C6C22E5390730 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FCXRefreshDemo/Pods-FCXRefreshDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		65396785E81C8DBA47A2ED16 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FCXRefreshDemo/Pods-FCXRefreshDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E9BB9CC7CAAF0E7D74726AD7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		8A85F7DF1F05DCDA007425A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19F39C1521BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m in Sources */,
 				8A85F7FF1F064946007425A7 /* RefreshTableViewController.m in Sources */,
 				8A85F7EB1F05DCDA007425A7 /* AppDelegate.m in Sources */,
+				19F39C1121BA635900C4F38E /* FCXRefreshHeaderView.m in Sources */,
 				8A85F8021F064963007425A7 /* TableViewController.m in Sources */,
+				19F39C0F21BA635900C4F38E /* FCXRefreshFooterView.m in Sources */,
+				19F39C1221BA635900C4F38E /* FCXRefreshBaseView.m in Sources */,
 				8A85F7E81F05DCDA007425A7 /* main.m in Sources */,
+				19F39C1021BA635900C4F38E /* UIScrollView+FCXRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,28 +328,28 @@
 		};
 		8A85F7FB1F05DCDA007425A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 869A5A7D084822DEEAAEE597 /* Pods-FCXRefreshDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DLHH8HAF9C;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "";
+				DEVELOPMENT_TEAM = V5S25J9BX6;
 				INFOPLIST_FILE = FCXRefreshDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.FCXRefreshDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shark.FCXRefreshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		8A85F7FC1F05DCDA007425A7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 048A1AD8CB3E2FC7007CEB04 /* Pods-FCXRefreshDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DLHH8HAF9C;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "";
+				DEVELOPMENT_TEAM = V5S25J9BX6;
 				INFOPLIST_FILE = FCXRefreshDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.FCXRefreshDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shark.FCXRefreshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

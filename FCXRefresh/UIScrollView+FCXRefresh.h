@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "FCXRefreshBaseView.h"
 
-@class FCXRefreshHeaderView;
-@class FCXRefreshFooterView;
 
 @interface UIScrollView (FCXRefresh)
 
-- (FCXRefreshHeaderView *)addHeaderWithRefreshHandler:(FCXRefreshedHandler)refreshHandler;
-- (FCXRefreshFooterView *)addFooterWithRefreshHandler:(FCXRefreshedHandler)refreshHandler;
+- (__kindof FCXRefreshBaseView *)addHeaderWithRefreshHandler:(FCXRefreshedHandler)refreshHandler;
+- (__kindof FCXRefreshBaseView *)addFooterWithRefreshHandler:(FCXRefreshedHandler)refreshHandler;
 
 @end

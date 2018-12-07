@@ -36,6 +36,9 @@
 - (void)autoRefresh {}
 - (void)endRefresh {
     self.refreshState = FCXRefreshStateNormal;
+    if (self.pullingPercentHandler) {
+        self.pullingPercent = 0;
+    }
 }
 - (void)showNoMoreData {}
 - (void)resetNoMoreData {}
@@ -49,6 +52,7 @@
 }
 
 #pragma mark - KVO
+
 - (void)addScrollViewObservers {
     [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     [_scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
@@ -69,6 +73,8 @@
         if (_refreshState == FCXRefreshStateLoading) {
             return;
         }
+        // contentInset可能会变
+        _scrollViewOriginalEdgeInsets = _scrollView.contentInset;
         [self scrollViewContentOffsetDidChange];
     } else if ([keyPath isEqualToString:@"contentSize"]) {
         [self scrollViewContentSizeDidChange];
@@ -82,5 +88,77 @@
 
 - (void)scrollViewContentOffsetDidChange {}
 - (void)scrollViewContentSizeDidChange {}
+
+- (void)hideTime {
+    _timeLabel.hidden = YES;
+    [self setNeedsLayout];
+}
+
+- (void)hideStatusAndTime {
+    _timeLabel.hidden = YES;
+    _statusLabel.hidden = YES;
+    [self setNeedsLayout];
+}
+
+#pragma mark - 状态改变处理动画
+
+- (void)fcxChangeToStatusNormal {
+    _arrowImageView.hidden = NO;
+    [_activityView stopAnimating];
+}
+
+- (void)fcxChangeToStatusLoading {
+    _arrowImageView.hidden = YES;
+    [_activityView startAnimating];
+}
+
+- (void)fcxChangeToStatusPulling {}
+- (void)fcxChangeToStatusWillLoading {}
+- (void)fcxChangeToStatusNoMoreData {}
+
+#pragma mark - set、get
+
+- (UIEdgeInsets)scrollViewEdgeInsets {
+    if (@available(iOS 11.0, *)) {
+        return _scrollView.adjustedContentInset;
+    }
+    return _scrollView.contentInset;
+}
+
+- (void)setNormalStateText:(NSString *)normalStateText {
+    if (_normalStateText != normalStateText) {
+        _normalStateText = normalStateText;
+        if (self.refreshState == FCXRefreshStateNormal) {
+            _statusLabel.text = _normalStateText;
+        }
+    }
+}
+
+- (void)setPullingStateText:(NSString *)pullingStateText {
+    if (_pullingStateText != pullingStateText) {
+        _pullingStateText = pullingStateText;
+        if (self.refreshState == FCXRefreshStatePulling) {
+            _statusLabel.text = _pullingStateText;
+        }
+    }
+}
+
+- (void)setLoadingStateText:(NSString *)loadingStateText {
+    if (_loadingStateText != loadingStateText) {
+        _loadingStateText = loadingStateText;
+        if (self.refreshState == FCXRefreshStateLoading) {
+            _statusLabel.text = _loadingStateText;
+        }
+    }
+}
+
+- (void)setNoMoreDataStateText:(NSString *)noMoreDataStateText {
+    if (_noMoreDataStateText != noMoreDataStateText) {
+        _noMoreDataStateText = noMoreDataStateText;
+        if (self.refreshState == FCXRefreshStateNoMoreData) {
+            _statusLabel.text = _noMoreDataStateText;
+        }
+    }
+}
 
 @end

@@ -9,6 +9,7 @@
 #import "FCXRefreshFooterView.h"
 
 @implementation FCXRefreshFooterView
+@synthesize autoLoadMore = _autoLoadMore;
 
 - (void)setupStateText {
     self.normalStateText = @"上拉加载更多";
@@ -18,44 +19,44 @@
 }
 
 - (void)addRefreshContentView {
-    [super addRefreshContentView];
     CGFloat width = self.frame.size.width;
     
     //刷新状态
     _statusLabel = [[UILabel alloc] init];
-    _statusLabel.frame = CGRectMake(0, 0, width, 60);
-    _statusLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
+    _statusLabel.frame = CGRectMake(0, 0, width, FCXHandingOffsetHeight);
+    _statusLabel.font = [UIFont systemFontOfSize:12];
     _statusLabel.textColor = FCXREFRESHTEXTCOLOR;
-    _statusLabel.backgroundColor = [UIColor clearColor];
+//    _statusLabel.backgroundColor = [UIColor clearColor];
     _statusLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_statusLabel];
     
     //箭头图片
-    arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"blueArrow"]];
-    arrowImageView.frame = CGRectMake(width/2.0 - 100, 11, 15, 40);
-    [self addSubview:arrowImageView];
+    _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fcx_arrow"]];
+    _arrowImageView.frame = CGRectMake(width/2.0 - 90, 11, 15, 40);
+    [self addSubview:_arrowImageView];
     
     //转圈动画
     _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    _activityView.frame = CGRectMake(width/2.0 - 100, 10, 15, 40);
+    _activityView.frame = CGRectMake(width/2.0 - 90, (FCXHandingOffsetHeight - 40)/2.0, 15, 40);
     [self addSubview:_activityView];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    _statusLabel.frame = CGRectMake(0, 0, self.frame.size.width, 60);
+    if (!_statusLabel.hidden) {
+        _statusLabel.frame = CGRectMake(0, 0, self.frame.size.width, FCXHandingOffsetHeight);
+    }
     if (!_autoLoadMore) {
-        arrowImageView.frame = CGRectMake(self.frame.size.width/2.0 - 100, 11, 15, 40);
-        _activityView.frame = CGRectMake(self.frame.size.width/2.0 - 100, 10, 15, 40);
+        _arrowImageView.frame = CGRectMake(self.frame.size.width/2.0 - (_statusLabel.hidden ? 7.5 : 90) + self.arrowOffsetX, (FCXHandingOffsetHeight - 40)/2.0, 15, 40);
+        _activityView.frame = _arrowImageView.frame;
     }
 }
-
 
 - (void)setAutoLoadMore:(BOOL)autoLoadMore {
     _autoLoadMore = autoLoadMore;
     if (_autoLoadMore) {//自动加载更多不显示箭头
-        [arrowImageView removeFromSuperview];
-        arrowImageView = nil;
+        [_arrowImageView removeFromSuperview];
+        _arrowImageView = nil;
         self.normalStateText = @"正在加载更多...";
         self.pullingStateText = @"正在加载更多...";
         self.loadingStateText = @"正在加载更多...";
@@ -64,7 +65,7 @@
 
 - (void)scrollViewContentSizeDidChange {
     CGRect frame = self.frame;
-    frame.origin.y =  MAX(_scrollView.frame.size.height, _scrollView.contentSize.height);
+    frame.origin.y =  MAX(_scrollView.frame.size.height - self.scrollViewEdgeInsets.top - self.scrollViewEdgeInsets.bottom, _scrollView.contentSize.height) + self.loadMoreBottomExtraSpace;
     self.frame = frame;
 }
 
@@ -73,20 +74,23 @@
         return;
     }
     
+    CGFloat edgeTop = self.scrollViewEdgeInsets.top;
+    CGFloat edgeBottom = self.scrollViewEdgeInsets.bottom + self.loadMoreBottomExtraSpace;
+
     //scrollview实际显示内容高度
-    CGFloat realHeight = _scrollView.frame.size.height - _scrollViewOriginalEdgeInsets.top - _scrollViewOriginalEdgeInsets.bottom;
+    CGFloat realHeight = _scrollView.frame.size.height - edgeTop - edgeBottom;
     /// 计算超出scrollView的高度
     CGFloat beyondScrollViewHeight = _scrollView.contentSize.height - realHeight;
-    if (beyondScrollViewHeight <= 0) {
+    if (beyondScrollViewHeight <= 0 && !self.loadMoreIgnoreContentSize) {
         //scrollView的实际内容高度没有超出本身高度不处理
         return;
     }
     
     //刚刚出现底部控件时出现的offsetY
-    CGFloat offSetY = beyondScrollViewHeight - _scrollViewOriginalEdgeInsets.top;
+    CGFloat offSetY = beyondScrollViewHeight - edgeTop;
     // 当前scrollView的contentOffsetY超出offsetY的高度
     CGFloat beyondOffsetHeight = _scrollView.contentOffset.y - offSetY;
-    if (beyondOffsetHeight <= 0) {
+    if (beyondOffsetHeight < 0) {
         return;
     }
 
@@ -111,10 +115,13 @@
     }
     
     if (self.pullingPercentHandler) {
-        if (beyondOffsetHeight <= FCXHandingOffsetHeight) {
-            //有时进度可能会到0.991..对精度要求没那么高可以忽略
-            self.pullingPercent = beyondOffsetHeight/FCXHandingOffsetHeight;
+        if (beyondOffsetHeight > FCXHandingOffsetHeight) {
+            if (self.pullingPercent == 1) {
+                return;
+            }
+            beyondOffsetHeight = FCXHandingOffsetHeight;
         }
+        self.pullingPercent = beyondOffsetHeight/FCXHandingOffsetHeight;
     }
 }
 
@@ -127,15 +134,14 @@
             {                
                 _statusLabel.text = self.normalStateText;
                 if (lastRefreshState == FCXRefreshStateLoading) {//之前是刷新过
-                    arrowImageView.hidden = YES;
+                    _arrowImageView.hidden = YES;
                 } else {
-                    arrowImageView.hidden = NO;
+                    _arrowImageView.hidden = NO;
                 }
-                arrowImageView.hidden = NO;
-                [_activityView stopAnimating];
+                [self fcxChangeToStatusNormal];
                 
                 [UIView animateWithDuration:0.2 animations:^{
-                    arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
+                    _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
                     _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
                 }];                
             }
@@ -144,19 +150,18 @@
             {
                 _statusLabel.text = self.pullingStateText;
                 [UIView animateWithDuration:0.2 animations:^{
-                    arrowImageView.transform = CGAffineTransformIdentity;
+                    _arrowImageView.transform = CGAffineTransformIdentity;
                 }];
             }
                 break;
             case FCXRefreshStateLoading:
             {
                 _statusLabel.text = self.loadingStateText;
-                [_activityView startAnimating];
-                arrowImageView.hidden = YES;
-                arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
+                _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
+                [self fcxChangeToStatusLoading];
                 [UIView animateWithDuration:0.2 animations:^{
                     UIEdgeInsets inset = _scrollView.contentInset;
-                    inset.bottom += FCXHandingOffsetHeight;
+                    inset.bottom += (FCXHandingOffsetHeight + self.loadMoreBottomExtraSpace);
                     _scrollView.contentInset = inset;
                     inset.bottom = self.frame.origin.y - _scrollView.contentSize.height + FCXHandingOffsetHeight;
                     _scrollView.contentInset = inset;
@@ -170,7 +175,10 @@
             case FCXRefreshStateNoMoreData:
             {
                 _statusLabel.text = self.noMoreDataStateText;
+                [self fcxChangeToStatusNoMoreData];
             }
+                break;
+            default:
                 break;
         }
     }
@@ -179,7 +187,7 @@
 - (void)showNoMoreData {
     [self endRefresh];
     self.refreshState = FCXRefreshStateNoMoreData;
-    arrowImageView.hidden = YES;
+    _arrowImageView.hidden = YES;
 }
 
 - (void)resetNoMoreData {

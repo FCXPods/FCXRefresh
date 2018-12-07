@@ -5,6 +5,7 @@
 * 上拉无更多数据控制
 * 上下拉百分比显示
 * 自定义上下拉动画
+* 下拉间距控制
 
 ## 如何导入
 * 1.手动导入
@@ -25,12 +26,12 @@
 ```objc
 //下拉刷新
 _refreshHeaderView = [self.tableView addHeaderWithRefreshHandler:^(FCXRefreshBaseView *refreshView) {
-[weakSelf refreshAction];
+    [weakSelf refreshAction];
 }];
 
 //上拉加载更多
 _refreshFooterView = [self.tableView addFooterWithRefreshHandler:^(FCXRefreshBaseView *refreshView) {
-[weakSelf loadMoreAction];
+    [weakSelf loadMoreAction];
 }];
 ```
 自动上下拉刷新设置
@@ -48,6 +49,7 @@ _refreshFooterView.pullingPercentHandler = ^(CGFloat pullingPercent) {
     footerPercentLabel.text = [NSString stringWithFormat:@"%.2f%%", pullingPercent * 100];
 };
 ```
+
 显示效果：
 ![](refreshGif.gif)
 

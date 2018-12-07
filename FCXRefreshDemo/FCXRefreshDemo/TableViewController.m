@@ -31,7 +31,7 @@ static NSString *const CellReuseId = @"cellReuseId";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 11;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -39,19 +39,37 @@ static NSString *const CellReuseId = @"cellReuseId";
     
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"下拉刷新+上拉刷新";
+            cell.textLabel.text = @"上下拉刷新（普通）";
             break;
         case 1:
-            cell.textLabel.text = @"自动下拉刷新+上拉刷新";
+            cell.textLabel.text = @"上下拉刷新（自动下拉加载）";
             break;
         case 2:
-            cell.textLabel.text = @"下拉刷新+上拉自动刷新";
+            cell.textLabel.text = @"上下拉刷新（自动上拉加载）";
             break;
         case 3:
-            cell.textLabel.text = @"下拉刷新+上拉刷新(控制加载个数)";
+            cell.textLabel.text = @"上下拉刷新（上拉无更多数据）";
             break;
         case 4:
-            cell.textLabel.text = @"下拉刷新+上拉刷新(显示百分比)";
+            cell.textLabel.text = @"上下拉刷新（显示百分比）";
+            break;
+        case 5:
+            cell.textLabel.text = @"上下拉刷新（底部间隙）";
+            break;
+        case 6:
+            cell.textLabel.text = @"上下拉刷新（自定义颜色）";
+            break;
+        case 7:
+            cell.textLabel.text = @"上下拉刷新（自定义文本）";
+            break;
+        case 8:
+            cell.textLabel.text = @"上下拉刷新（隐藏时间）";
+            break;
+        case 9:
+            cell.textLabel.text = @"上下拉刷新（隐藏状态和时间）";
+            break;
+        case 10:
+            cell.textLabel.text = @"上下拉刷新（自定义动画）";
             break;
         default:
             break;

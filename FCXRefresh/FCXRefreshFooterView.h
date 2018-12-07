@@ -10,10 +10,5 @@
 
 @interface FCXRefreshFooterView : FCXRefreshBaseView
 
-/**
- *  是否自动加载更多，默认上拉超过scrollView的内容高度时，直接加载更多
- */
-@property (nonatomic, unsafe_unretained) BOOL autoLoadMore;
-
 
 @end
