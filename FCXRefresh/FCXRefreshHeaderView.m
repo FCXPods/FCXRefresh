@@ -76,7 +76,7 @@
     if (_scrollView.isDragging) {//正在拖拽
         if (_scrollView.contentOffset.y + edgeTop < -FCXHandingOffsetHeight) {//大于偏移量，转为pulling
             self.refreshState = FCXRefreshStatePulling;
-        }else {//小于偏移量，转为正常normal
+        } else {//小于偏移量，转为正常normal
             self.refreshState = FCXRefreshStateNormal;
         }
     } else {
@@ -112,36 +112,35 @@
                 if (lastRefreshState == FCXRefreshStateLoading) {//之前是在刷新
                     [self updateTimeLabel];
                 }
-                [self fcxChangeToStatusNormal];
                 [UIView animateWithDuration:0.2 animations:^{
                     _arrowImageView.transform = CGAffineTransformIdentity;
                     _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
                 }];
+                [self fcxChangeToStatusNormal];
             }
                 break;
             case FCXRefreshStatePulling:
             {
                 _statusLabel.text = self.pullingStateText;
-                [self fcxChangeToStatusPulling];
                 [UIView animateWithDuration:0.2 animations:^{
                     _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
                 }];
+                [self fcxChangeToStatusPulling];
             }
                 break;
             case FCXRefreshStateLoading:
             {
                 _statusLabel.text = self.loadingStateText;
                 _arrowImageView.transform = CGAffineTransformIdentity;
-                [self fcxChangeToStatusLoading];
                 [UIView animateWithDuration:0.2 animations:^{
                     UIEdgeInsets edgeInset = _scrollViewOriginalEdgeInsets;
                     edgeInset.top += FCXHandingOffsetHeight;
                     _scrollView.contentInset = edgeInset;
                 }];
-
                 if (self.refreshHandler) {
                     self.refreshHandler(self);
                 }
+                [self fcxChangeToStatusLoading];
             }
                 break;
             case FCXRefreshStateNoMoreData:

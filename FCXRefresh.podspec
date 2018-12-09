@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "FCXRefresh"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "上下拉刷新."
   s.description  = <<-DESC
 		提供简便的上下拉刷新，支持自定义，只需简单的两三行代码即可.
