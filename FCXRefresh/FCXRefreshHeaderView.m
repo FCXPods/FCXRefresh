@@ -108,6 +108,7 @@
         switch (refreshState) {
             case FCXRefreshStateNormal:
             {
+                [self fcxChangeToStatusNormal];
                 _statusLabel.text = self.normalStateText;
                 if (lastRefreshState == FCXRefreshStateLoading) {//之前是在刷新
                     [self updateTimeLabel];
@@ -116,20 +117,20 @@
                     _arrowImageView.transform = CGAffineTransformIdentity;
                     _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
                 }];
-                [self fcxChangeToStatusNormal];
             }
                 break;
             case FCXRefreshStatePulling:
             {
+                [self fcxChangeToStatusPulling];
                 _statusLabel.text = self.pullingStateText;
                 [UIView animateWithDuration:0.2 animations:^{
                     _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
                 }];
-                [self fcxChangeToStatusPulling];
             }
                 break;
             case FCXRefreshStateLoading:
             {
+                [self fcxChangeToStatusLoading];
                 _statusLabel.text = self.loadingStateText;
                 _arrowImageView.transform = CGAffineTransformIdentity;
                 [UIView animateWithDuration:0.2 animations:^{
@@ -140,7 +141,6 @@
                 if (self.refreshHandler) {
                     self.refreshHandler(self);
                 }
-                [self fcxChangeToStatusLoading];
             }
                 break;
             case FCXRefreshStateNoMoreData:

@@ -134,7 +134,8 @@
         _refreshState = refreshState;
         switch (refreshState) {
             case FCXRefreshStateNormal:
-            {                
+            {
+                [self fcxChangeToStatusNormal];
                 _statusLabel.text = self.normalStateText;
                 if (lastRefreshState == FCXRefreshStateLoading) {//之前是刷新过
                     _arrowImageView.hidden = YES;
@@ -145,20 +146,20 @@
                     _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
                     _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
                 }];
-                [self fcxChangeToStatusNormal];
             }
                 break;
             case FCXRefreshStatePulling:
             {
+                [self fcxChangeToStatusPulling];
                 _statusLabel.text = self.pullingStateText;
                 [UIView animateWithDuration:0.2 animations:^{
                     _arrowImageView.transform = CGAffineTransformIdentity;
                 }];
-                [self fcxChangeToStatusPulling];
             }
                 break;
             case FCXRefreshStateLoading:
             {
+                [self fcxChangeToStatusLoading];
                 _statusLabel.text = self.loadingStateText;
                 _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
                 [UIView animateWithDuration:0.2 animations:^{
@@ -172,11 +173,11 @@
                 if (self.refreshHandler) {
                     self.refreshHandler(self);
                 }
-                [self fcxChangeToStatusLoading];
             }
                 break;
             case FCXRefreshStateNoMoreData:
             {
+                [self fcxChangeToStatusNoMoreData];
                 _statusLabel.text = self.noMoreDataStateText;
                 _arrowImageView.hidden = YES;
                 [_activityView stopAnimating];
@@ -184,7 +185,6 @@
                     _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
                     _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
                 }];
-                [self fcxChangeToStatusNoMoreData];
             }
                 break;
             default:
