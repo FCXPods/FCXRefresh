@@ -22,7 +22,6 @@
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
-    
     [self removeScrollViewObservers];
     if ([newSuperview isKindOfClass:[UIScrollView class]]) {
         _scrollView = (UIScrollView *)newSuperview;
@@ -102,21 +101,54 @@
 
 #pragma mark - 状态改变处理动画
 
-- (void)fcxChangeToStatusNormal {
-    _arrowImageView.hidden = NO;
-    [_activityView stopAnimating];
-}
+- (void)fcxChangeToStatusNormal {}
 
-- (void)fcxChangeToStatusLoading {
-    _arrowImageView.hidden = YES;
-    [_activityView startAnimating];
-}
-
+- (void)fcxChangeToStatusLoading {}
 - (void)fcxChangeToStatusPulling {}
-- (void)fcxChangeToStatusWillLoading {}
+- (void)fcxChangeToStateWillLoading {}
 - (void)fcxChangeToStatusNoMoreData {}
+- (void)fcxChangeToRefreshDate {}
 
 #pragma mark - set、get
+
+- (void)setRefreshState:(FCXRefreshState)refreshState {
+    FCXRefreshState lastRefreshState = _refreshState;
+    if (_refreshState != refreshState) {
+        _refreshState = refreshState;
+        switch (refreshState) {
+            case FCXRefreshStateNormal:
+            {
+                [self fcxChangeToStatusNormal];
+                if (lastRefreshState == FCXRefreshStateLoading) {//之前是在刷新
+                    [self fcxChangeToRefreshDate];
+                }
+            }
+                break;
+            case FCXRefreshStatePulling:
+            {
+                [self fcxChangeToStatusPulling];
+            }
+                break;
+            case FCXRefreshStateWillLoading:
+            {
+                [self fcxChangeToStateWillLoading];
+            }
+                break;
+            case FCXRefreshStateLoading:
+            {
+                [self fcxChangeToStatusLoading];
+            }
+                break;
+            case FCXRefreshStateNoMoreData:
+            {
+                [self fcxChangeToStatusNoMoreData];
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
 
 - (UIEdgeInsets)scrollViewEdgeInsets {
     if (@available(iOS 11.0, *)) {

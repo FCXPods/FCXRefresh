@@ -11,6 +11,7 @@
 #import "FCXRefreshHeaderView.h"
 #import "FCXRefreshFooterView.h"
 #import "FCXRefreshDotAnimationHeaderView.h"
+#import "FCXRefreshDotPathAnimationHeaderView.h"
 
 
 static NSString *const RefreshCellReuseId = @"RefreshCellReuseId";
@@ -23,7 +24,6 @@ NSInteger PageCount = 20;
 }
 
 @property (nonatomic, strong) FCXRefreshFooterView *refreshFooterView;
-
 
 @end
 
@@ -97,11 +97,9 @@ NSInteger PageCount = 20;
             self.tableView.tableFooterView = footerPercentLabel;
             
             headerPercentLabel.text = footerPercentLabel.text = @"0%";
-            
             _refreshHeaderView.pullingPercentHandler = ^(CGFloat pullingPercent) {
                 headerPercentLabel.text = [NSString stringWithFormat:@"%.2f%%", pullingPercent * 100];
             };
-            
             _refreshFooterView.pullingPercentHandler = ^(CGFloat pullingPercent) {
                 footerPercentLabel.text = [NSString stringWithFormat:@"%.2f%%", pullingPercent * 100];
             };
@@ -150,18 +148,30 @@ NSInteger PageCount = 20;
             break;
         case 10:
         {//自定义动画
-            self.title = @"自定义动画";
-            
+            self.title = @"圆点闪烁动画";
             [_refreshHeaderView removeFromSuperview];
-            _refreshHeaderView = (FCXRefreshHeaderView *)[[FCXRefreshDotAnimationHeaderView alloc] initWithFrame:CGRectMake(0, -FCXHandingOffsetHeight, self.tableView.frame.size.width, FCXHandingOffsetHeight)];
+            _refreshHeaderView = [[FCXRefreshDotAnimationHeaderView alloc] initWithFrame:CGRectMake(0, -FCXHandingOffsetHeight, self.tableView.frame.size.width, FCXHandingOffsetHeight)];
             _refreshHeaderView.backgroundColor = [UIColor clearColor];
             [self.tableView addSubview:_refreshHeaderView];
-            
             __weak typeof(self) weakSelf = self;
             _refreshHeaderView.refreshHandler = ^(FCXRefreshBaseView *refreshView) {
                 [weakSelf refreshAction];
             };
-
+            [_refreshHeaderView hideStatusAndTime];
+            [_refreshFooterView hideStatusAndTime];
+        }
+            break;
+        case 11:
+        {//自定义动画
+            self.title = @"圆点轨迹动画";
+            [_refreshHeaderView removeFromSuperview];
+            _refreshHeaderView = [[FCXRefreshDotPathAnimationHeaderView alloc] initWithFrame:CGRectMake(0, -FCXHandingOffsetHeight, self.tableView.frame.size.width, FCXHandingOffsetHeight)];
+            _refreshHeaderView.backgroundColor = [UIColor clearColor];
+            [self.tableView addSubview:_refreshHeaderView];
+            __weak typeof(self) weakSelf = self;
+            _refreshHeaderView.refreshHandler = ^(FCXRefreshBaseView *refreshView) {
+                [weakSelf refreshAction];
+            };
             [_refreshHeaderView hideStatusAndTime];
             [_refreshFooterView hideStatusAndTime];
         }
@@ -211,9 +221,7 @@ NSInteger PageCount = 20;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:RefreshCellReuseId forIndexPath:indexPath];
-    
     cell.textLabel.text = [NSString stringWithFormat:@"第%ld行", (long)indexPath.row];
-    
     return cell;
 }
 

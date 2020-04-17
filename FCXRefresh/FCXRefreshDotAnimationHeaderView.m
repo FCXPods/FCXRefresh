@@ -136,15 +136,16 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-
     _animationView.frame = CGRectMake(0 + self.arrowOffsetX, self.frame.size.height - FCXHandingOffsetHeight + (FCXHandingOffsetHeight - 40)/2.0, self.frame.size.width, 40);
 }
 
 - (void)fcxChangeToStatusNormal {
+    [super fcxChangeToStatusNormal];
     [_animationView stopAnimating];
 }
 
 - (void)fcxChangeToStatusLoading {
+    [super fcxChangeToStatusLoading];
     [_animationView startAnimating];
 }
 

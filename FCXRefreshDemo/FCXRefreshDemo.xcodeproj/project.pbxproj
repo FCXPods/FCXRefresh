@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19BBAAE32420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BBAAE22420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.m */; };
+		19BBAAE6242100520057FF81 /* FCXDotPathAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BBAAE5242100520057FF81 /* FCXDotPathAnimation.m */; };
 		19F39C0E21BA635900C4F38E /* fcx_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F39C0621BA635900C4F38E /* fcx_arrow@2x.png */; };
 		19F39C0F21BA635900C4F38E /* FCXRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C0721BA635900C4F38E /* FCXRefreshFooterView.m */; };
 		19F39C1021BA635900C4F38E /* UIScrollView+FCXRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C0921BA635900C4F38E /* UIScrollView+FCXRefresh.m */; };
@@ -23,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19BBAAE12420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCXRefreshDotPathAnimationHeaderView.h; sourceTree = "<group>"; };
+		19BBAAE22420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshDotPathAnimationHeaderView.m; sourceTree = "<group>"; };
+		19BBAAE4242100520057FF81 /* FCXDotPathAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCXDotPathAnimation.h; sourceTree = "<group>"; };
+		19BBAAE5242100520057FF81 /* FCXDotPathAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCXDotPathAnimation.m; sourceTree = "<group>"; };
 		19F39C0521BA635900C4F38E /* FCXRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCXRefreshHeaderView.h; sourceTree = "<group>"; };
 		19F39C0621BA635900C4F38E /* fcx_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fcx_arrow@2x.png"; sourceTree = "<group>"; };
 		19F39C0721BA635900C4F38E /* FCXRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshFooterView.m; sourceTree = "<group>"; };
@@ -71,6 +77,10 @@
 				19F39C0A21BA635900C4F38E /* FCXRefreshHeaderView.m */,
 				19F39C1321BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.h */,
 				19F39C1421BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m */,
+				19BBAAE12420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.h */,
+				19BBAAE22420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.m */,
+				19BBAAE4242100520057FF81 /* FCXDotPathAnimation.h */,
+				19BBAAE5242100520057FF81 /* FCXDotPathAnimation.m */,
 				19F39C0D21BA635900C4F38E /* UIScrollView+FCXRefresh.h */,
 				19F39C0921BA635900C4F38E /* UIScrollView+FCXRefresh.m */,
 			);
@@ -170,6 +180,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -205,8 +216,10 @@
 				19F39C1521BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m in Sources */,
 				8A85F7FF1F064946007425A7 /* RefreshTableViewController.m in Sources */,
 				8A85F7EB1F05DCDA007425A7 /* AppDelegate.m in Sources */,
+				19BBAAE6242100520057FF81 /* FCXDotPathAnimation.m in Sources */,
 				19F39C1121BA635900C4F38E /* FCXRefreshHeaderView.m in Sources */,
 				8A85F8021F064963007425A7 /* TableViewController.m in Sources */,
+				19BBAAE32420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.m in Sources */,
 				19F39C0F21BA635900C4F38E /* FCXRefreshFooterView.m in Sources */,
 				19F39C1221BA635900C4F38E /* FCXRefreshBaseView.m in Sources */,
 				8A85F7E81F05DCDA007425A7 /* main.m in Sources */,

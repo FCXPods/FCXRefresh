@@ -20,13 +20,12 @@
 
 - (void)addRefreshContentView {
     CGFloat width = self.frame.size.width;
-    
     //刷新状态
     _statusLabel = [[UILabel alloc] init];
     _statusLabel.frame = CGRectMake(0, 0, width, FCXHandingOffsetHeight);
     _statusLabel.font = [UIFont systemFontOfSize:12];
     _statusLabel.textColor = FCXREFRESHTEXTCOLOR;
-//    _statusLabel.backgroundColor = [UIColor clearColor];
+    _statusLabel.backgroundColor = [UIColor clearColor];
     _statusLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_statusLabel];
     
@@ -128,69 +127,50 @@
     }
 }
 
-- (void)setRefreshState:(FCXRefreshState)refreshState {
-    FCXRefreshState lastRefreshState = _refreshState;
-    if (_refreshState != refreshState) {
-        _refreshState = refreshState;
-        switch (refreshState) {
-            case FCXRefreshStateNormal:
-            {
-                [self fcxChangeToStatusNormal];
-                _statusLabel.text = self.normalStateText;
-                if (lastRefreshState == FCXRefreshStateLoading) {//之前是刷新过
-                    _arrowImageView.hidden = YES;
-                } else {
-                    _arrowImageView.hidden = NO;
-                }
-                [UIView animateWithDuration:0.2 animations:^{
-                    _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
-                    _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
-                }];
-            }
-                break;
-            case FCXRefreshStatePulling:
-            {
-                [self fcxChangeToStatusPulling];
-                _statusLabel.text = self.pullingStateText;
-                [UIView animateWithDuration:0.2 animations:^{
-                    _arrowImageView.transform = CGAffineTransformIdentity;
-                }];
-            }
-                break;
-            case FCXRefreshStateLoading:
-            {
-                [self fcxChangeToStatusLoading];
-                _statusLabel.text = self.loadingStateText;
-                _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
-                [UIView animateWithDuration:0.2 animations:^{
-                    UIEdgeInsets inset = _scrollView.contentInset;
-                    inset.bottom += (FCXHandingOffsetHeight + self.loadMoreBottomExtraSpace);
-                    _scrollView.contentInset = inset;
-                    inset.bottom = self.frame.origin.y - _scrollView.contentSize.height + FCXHandingOffsetHeight;
-                    _scrollView.contentInset = inset;
-                }];
-                
-                if (self.refreshHandler) {
-                    self.refreshHandler(self);
-                }
-            }
-                break;
-            case FCXRefreshStateNoMoreData:
-            {
-                [self fcxChangeToStatusNoMoreData];
-                _statusLabel.text = self.noMoreDataStateText;
-                _arrowImageView.hidden = YES;
-                [_activityView stopAnimating];
-                [UIView animateWithDuration:0.2 animations:^{
-                    _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
-                    _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
-                }];
-            }
-                break;
-            default:
-                break;
-        }
+#pragma mark - 状态的改变
+
+- (void)fcxChangeToStatusNormal {
+    _arrowImageView.hidden = NO;
+    [_activityView stopAnimating];
+    _statusLabel.text = self.normalStateText;
+    [UIView animateWithDuration:0.2 animations:^{
+        _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
+        _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
+    }];
+}
+
+- (void)fcxChangeToStatusPulling {
+    _statusLabel.text = self.pullingStateText;
+    [UIView animateWithDuration:0.2 animations:^{
+        _arrowImageView.transform = CGAffineTransformIdentity;
+    }];
+}
+
+- (void)fcxChangeToStatusLoading {
+    _arrowImageView.hidden = YES;
+    [_activityView startAnimating];
+    _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
+    [UIView animateWithDuration:0.2 animations:^{
+        UIEdgeInsets inset = _scrollView.contentInset;
+        inset.bottom += (FCXHandingOffsetHeight + self.loadMoreBottomExtraSpace);
+        _scrollView.contentInset = inset;
+        inset.bottom = self.frame.origin.y - _scrollView.contentSize.height + FCXHandingOffsetHeight;
+        _scrollView.contentInset = inset;
+    }];
+    
+    if (self.refreshHandler) {
+        self.refreshHandler(self);
     }
+}
+
+- (void)fcxChangeToStatusNoMoreData {
+    _statusLabel.text = self.noMoreDataStateText;
+    _arrowImageView.hidden = YES;
+    [_activityView stopAnimating];
+    [UIView animateWithDuration:0.2 animations:^{
+        _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
+        _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
+    }];
 }
 
 - (void)showNoMoreData {

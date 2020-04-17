@@ -18,7 +18,6 @@
 
 - (void)addRefreshContentView {
     CGFloat width = self.frame.size.width;
-
     //刷新状态
     _statusLabel = [[UILabel alloc] init];
     _statusLabel.frame = CGRectMake(0, 15, width, 20);
@@ -46,7 +45,7 @@
     _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     _activityView.frame = _arrowImageView.frame;
     [self addSubview:_activityView];
-    [self updateTimeLabel];
+    [self fcxChangeToRefreshDate];
 }
 
 - (void)layoutSubviews {
@@ -101,56 +100,37 @@
     }
 }
 
-- (void)setRefreshState:(FCXRefreshState)refreshState {
-    FCXRefreshState lastRefreshState = _refreshState;
-    if (_refreshState != refreshState) {
-        _refreshState = refreshState;
-        switch (refreshState) {
-            case FCXRefreshStateNormal:
-            {
-                [self fcxChangeToStatusNormal];
-                _statusLabel.text = self.normalStateText;
-                if (lastRefreshState == FCXRefreshStateLoading) {//之前是在刷新
-                    [self updateTimeLabel];
-                }
-                [UIView animateWithDuration:0.2 animations:^{
-                    _arrowImageView.transform = CGAffineTransformIdentity;
-                    _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
-                }];
-            }
-                break;
-            case FCXRefreshStatePulling:
-            {
-                [self fcxChangeToStatusPulling];
-                _statusLabel.text = self.pullingStateText;
-                [UIView animateWithDuration:0.2 animations:^{
-                    _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
-                }];
-            }
-                break;
-            case FCXRefreshStateLoading:
-            {
-                [self fcxChangeToStatusLoading];
-                _statusLabel.text = self.loadingStateText;
-                _arrowImageView.transform = CGAffineTransformIdentity;
-                [UIView animateWithDuration:0.2 animations:^{
-                    UIEdgeInsets edgeInset = _scrollViewOriginalEdgeInsets;
-                    edgeInset.top += FCXHandingOffsetHeight;
-                    _scrollView.contentInset = edgeInset;
-                }];
-                if (self.refreshHandler) {
-                    self.refreshHandler(self);
-                }
-            }
-                break;
-            case FCXRefreshStateNoMoreData:
-            {
-                [self fcxChangeToStatusNoMoreData];
-            }
-                break;
-            default:
-                break;
-        }
+#pragma mark - 状态的改变
+
+- (void)fcxChangeToStatusNormal {
+    _arrowImageView.hidden = NO;
+    [_activityView stopAnimating];
+    _statusLabel.text = self.normalStateText;
+    [UIView animateWithDuration:0.2 animations:^{
+        _arrowImageView.transform = CGAffineTransformIdentity;
+        _scrollView.contentInset = _scrollViewOriginalEdgeInsets;
+    }];
+}
+
+- (void)fcxChangeToStatusPulling {
+    _statusLabel.text = self.pullingStateText;
+    [UIView animateWithDuration:0.2 animations:^{
+        _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
+    }];
+}
+
+- (void)fcxChangeToStatusLoading {
+    _arrowImageView.transform = CGAffineTransformIdentity;
+    _arrowImageView.hidden = YES;
+    [_activityView startAnimating];
+    _statusLabel.text = self.loadingStateText;
+    [UIView animateWithDuration:0.2 animations:^{
+        UIEdgeInsets edgeInset = _scrollViewOriginalEdgeInsets;
+        edgeInset.top += FCXHandingOffsetHeight;
+        _scrollView.contentInset = edgeInset;
+    }];
+    if (self.refreshHandler) {
+        self.refreshHandler(self);
     }
 }
 
@@ -185,7 +165,7 @@
     }
 }
 
-- (void)updateTimeLabel {
+- (void)fcxChangeToRefreshDate {
     NSMutableDictionary *threadDictionary = [[NSThread currentThread] threadDictionary] ;
     NSDateFormatter *dateFormatter = [threadDictionary objectForKey: @"FCXRefeshDateFormatterKey"] ;
     if (dateFormatter == nil) {

@@ -8,10 +8,15 @@
 
 #import "TableViewController.h"
 #import "RefreshTableViewController.h"
+#import "UIScrollView+FCXRefresh.h"
+#import "FCXRefreshHeaderView.h"
 
 static NSString *const CellReuseId = @"cellReuseId";
 
 @interface TableViewController ()
+{
+    FCXRefreshHeaderView *_refreshHeaderView;
+}
 
 @end
 
@@ -19,9 +24,23 @@ static NSString *const CellReuseId = @"cellReuseId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"上下拉刷新";
-    
+    self.title = @"FCXRefresh";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellReuseId];
+    __weak typeof(self) weakSelf = self;
+    _refreshHeaderView = [self.tableView addHeaderWithRefreshHandler:^(FCXRefreshBaseView *refreshView) {
+        [weakSelf refreshAction];
+    }];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(autoRefresh)];
+}
+
+- (void)autoRefresh {
+    [_refreshHeaderView autoRefresh];
+}
+
+- (void)refreshAction {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_refreshHeaderView endRefresh];
+    });
 }
 
 #pragma mark - Table view data source
@@ -31,12 +50,11 @@ static NSString *const CellReuseId = @"cellReuseId";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 11;
+    return 12;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellReuseId forIndexPath:indexPath];
-    
     switch (indexPath.row) {
         case 0:
             cell.textLabel.text = @"上下拉刷新（普通）";
@@ -69,17 +87,18 @@ static NSString *const CellReuseId = @"cellReuseId";
             cell.textLabel.text = @"上下拉刷新（隐藏状态和时间）";
             break;
         case 10:
-            cell.textLabel.text = @"上下拉刷新（自定义动画）";
+            cell.textLabel.text = @"上下拉刷新（圆点闪烁动画）";
+            break;
+        case 11:
+            cell.textLabel.text = @"上下拉刷新（圆点轨迹动画）";
             break;
         default:
             break;
     }
-
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
     RefreshTableViewController *refreshVC = [[RefreshTableViewController alloc] init];
     refreshVC.selectedRow = indexPath.row;
     [self.navigationController pushViewController:refreshVC animated:YES];
