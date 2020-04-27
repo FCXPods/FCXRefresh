@@ -7,14 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19BBAAE32420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BBAAE22420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.m */; };
-		19BBAAE6242100520057FF81 /* FCXDotPathAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BBAAE5242100520057FF81 /* FCXDotPathAnimation.m */; };
-		19F39C0E21BA635900C4F38E /* fcx_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F39C0621BA635900C4F38E /* fcx_arrow@2x.png */; };
-		19F39C0F21BA635900C4F38E /* FCXRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C0721BA635900C4F38E /* FCXRefreshFooterView.m */; };
-		19F39C1021BA635900C4F38E /* UIScrollView+FCXRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C0921BA635900C4F38E /* UIScrollView+FCXRefresh.m */; };
-		19F39C1121BA635900C4F38E /* FCXRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C0A21BA635900C4F38E /* FCXRefreshHeaderView.m */; };
-		19F39C1221BA635900C4F38E /* FCXRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C0C21BA635900C4F38E /* FCXRefreshBaseView.m */; };
-		19F39C1521BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F39C1421BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m */; };
+		1901AD4424568630000C6BCD /* FCXRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1901ACF824567D8F000C6BCD /* FCXRefresh.framework */; };
+		1901AD4524568630000C6BCD /* FCXRefresh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1901ACF824567D8F000C6BCD /* FCXRefresh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A85F7E81F05DCDA007425A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A85F7E71F05DCDA007425A7 /* main.m */; };
 		8A85F7EB1F05DCDA007425A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A85F7EA1F05DCDA007425A7 /* AppDelegate.m */; };
 		8A85F7F11F05DCDA007425A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A85F7EF1F05DCDA007425A7 /* Main.storyboard */; };
@@ -24,22 +18,32 @@
 		8A85F8021F064963007425A7 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A85F8011F064963007425A7 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1901ACF724567D8F000C6BCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1901ACF324567D8F000C6BCD /* FCXRefresh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1901ACE324567C7C000C6BCD;
+			remoteInfo = FCXRefresh;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1901AD4624568630000C6BCD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1901AD4524568630000C6BCD /* FCXRefresh.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		19BBAAE12420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCXRefreshDotPathAnimationHeaderView.h; sourceTree = "<group>"; };
-		19BBAAE22420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshDotPathAnimationHeaderView.m; sourceTree = "<group>"; };
-		19BBAAE4242100520057FF81 /* FCXDotPathAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCXDotPathAnimation.h; sourceTree = "<group>"; };
-		19BBAAE5242100520057FF81 /* FCXDotPathAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCXDotPathAnimation.m; sourceTree = "<group>"; };
-		19F39C0521BA635900C4F38E /* FCXRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCXRefreshHeaderView.h; sourceTree = "<group>"; };
-		19F39C0621BA635900C4F38E /* fcx_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fcx_arrow@2x.png"; sourceTree = "<group>"; };
-		19F39C0721BA635900C4F38E /* FCXRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshFooterView.m; sourceTree = "<group>"; };
-		19F39C0821BA635900C4F38E /* FCXRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCXRefreshBaseView.h; sourceTree = "<group>"; };
-		19F39C0921BA635900C4F38E /* UIScrollView+FCXRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+FCXRefresh.m"; sourceTree = "<group>"; };
-		19F39C0A21BA635900C4F38E /* FCXRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshHeaderView.m; sourceTree = "<group>"; };
-		19F39C0B21BA635900C4F38E /* FCXRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCXRefreshFooterView.h; sourceTree = "<group>"; };
-		19F39C0C21BA635900C4F38E /* FCXRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshBaseView.m; sourceTree = "<group>"; };
-		19F39C0D21BA635900C4F38E /* UIScrollView+FCXRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FCXRefresh.h"; sourceTree = "<group>"; };
-		19F39C1321BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCXRefreshDotAnimationHeaderView.h; sourceTree = "<group>"; };
-		19F39C1421BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCXRefreshDotAnimationHeaderView.m; sourceTree = "<group>"; };
+		1901ACF324567D8F000C6BCD /* FCXRefresh.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FCXRefresh.xcodeproj; path = ../FCXRefresh.xcodeproj; sourceTree = "<group>"; };
 		8A85F7E31F05DCDA007425A7 /* FCXRefreshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCXRefreshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A85F7E71F05DCDA007425A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A85F7E91F05DCDA007425A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,33 +63,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1901AD4424568630000C6BCD /* FCXRefresh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		19F39C0421BA635900C4F38E /* FCXRefresh */ = {
+		1901ACF424567D8F000C6BCD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				19F39C0621BA635900C4F38E /* fcx_arrow@2x.png */,
-				19F39C0821BA635900C4F38E /* FCXRefreshBaseView.h */,
-				19F39C0C21BA635900C4F38E /* FCXRefreshBaseView.m */,
-				19F39C0B21BA635900C4F38E /* FCXRefreshFooterView.h */,
-				19F39C0721BA635900C4F38E /* FCXRefreshFooterView.m */,
-				19F39C0521BA635900C4F38E /* FCXRefreshHeaderView.h */,
-				19F39C0A21BA635900C4F38E /* FCXRefreshHeaderView.m */,
-				19F39C1321BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.h */,
-				19F39C1421BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m */,
-				19BBAAE12420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.h */,
-				19BBAAE22420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.m */,
-				19BBAAE4242100520057FF81 /* FCXDotPathAnimation.h */,
-				19BBAAE5242100520057FF81 /* FCXDotPathAnimation.m */,
-				19F39C0D21BA635900C4F38E /* UIScrollView+FCXRefresh.h */,
-				19F39C0921BA635900C4F38E /* UIScrollView+FCXRefresh.m */,
+				1901ACF824567D8F000C6BCD /* FCXRefresh.framework */,
 			);
-			name = FCXRefresh;
-			path = ../../FCXRefresh;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		8A85F7DA1F05DCDA007425A7 = {
@@ -93,7 +83,7 @@
 			children = (
 				8A85F7E51F05DCDA007425A7 /* FCXRefreshDemo */,
 				8A85F7E41F05DCDA007425A7 /* Products */,
-				EA6C8EAED18EFDCCC5FC7697 /* Frameworks */,
+				1901ACF324567D8F000C6BCD /* FCXRefresh.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,7 +98,6 @@
 		8A85F7E51F05DCDA007425A7 /* FCXRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
-				19F39C0421BA635900C4F38E /* FCXRefresh */,
 				8A85F7E91F05DCDA007425A7 /* AppDelegate.h */,
 				8A85F7EA1F05DCDA007425A7 /* AppDelegate.m */,
 				8A85F8001F064963007425A7 /* TableViewController.h */,
@@ -132,13 +121,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EA6C8EAED18EFDCCC5FC7697 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +131,7 @@
 				8A85F7DF1F05DCDA007425A7 /* Sources */,
 				8A85F7E01F05DCDA007425A7 /* Frameworks */,
 				8A85F7E11F05DCDA007425A7 /* Resources */,
+				1901AD4624568630000C6BCD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -187,6 +170,12 @@
 			mainGroup = 8A85F7DA1F05DCDA007425A7;
 			productRefGroup = 8A85F7E41F05DCDA007425A7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1901ACF424567D8F000C6BCD /* Products */;
+					ProjectRef = 1901ACF324567D8F000C6BCD /* FCXRefresh.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8A85F7E21F05DCDA007425A7 /* FCXRefreshDemo */,
@@ -194,12 +183,21 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		1901ACF824567D8F000C6BCD /* FCXRefresh.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FCXRefresh.framework;
+			remoteRef = 1901ACF724567D8F000C6BCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		8A85F7E11F05DCDA007425A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19F39C0E21BA635900C4F38E /* fcx_arrow@2x.png in Resources */,
 				8A85F7F61F05DCDA007425A7 /* LaunchScreen.storyboard in Resources */,
 				8A85F7F31F05DCDA007425A7 /* Assets.xcassets in Resources */,
 				8A85F7F11F05DCDA007425A7 /* Main.storyboard in Resources */,
@@ -213,17 +211,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19F39C1521BA63DD00C4F38E /* FCXRefreshDotAnimationHeaderView.m in Sources */,
 				8A85F7FF1F064946007425A7 /* RefreshTableViewController.m in Sources */,
 				8A85F7EB1F05DCDA007425A7 /* AppDelegate.m in Sources */,
-				19BBAAE6242100520057FF81 /* FCXDotPathAnimation.m in Sources */,
-				19F39C1121BA635900C4F38E /* FCXRefreshHeaderView.m in Sources */,
 				8A85F8021F064963007425A7 /* TableViewController.m in Sources */,
-				19BBAAE32420FF160057FF81 /* FCXRefreshDotPathAnimationHeaderView.m in Sources */,
-				19F39C0F21BA635900C4F38E /* FCXRefreshFooterView.m in Sources */,
-				19F39C1221BA635900C4F38E /* FCXRefreshBaseView.m in Sources */,
 				8A85F7E81F05DCDA007425A7 /* main.m in Sources */,
-				19F39C1021BA635900C4F38E /* UIScrollView+FCXRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

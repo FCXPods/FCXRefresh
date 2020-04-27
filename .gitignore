@@ -1,44 +1,13 @@
-# .gitignore_global
-####################################
-######## OS generated files ########
-####################################
+# Mac OS X
 .DS_Store
-.DS_Store?
-*.swp
-._*
-.Spotlight-V100
-.Trashes
-Icon?
-ehthumbs.db
-Thumbs.db
-*.xcuserstate
-project.xcworkspace
-xcuserdata
-UserInterfaceState.xcuserstate
-project.xcworkspace/
-xcuserdata/
-UserInterface.xcuserstate 
-####################################
-######## CocoaPods #################
-####################################
-Pods/
-!Podfile
-!Podfile.lock
-####################################
-############# Packages #############
-####################################
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
+.AppleDouble
+.LSOverride
+
+# Xcode
 
 ## Build generated
 build/
-DerivedData/
+DerivedData
 
 ## Various settings
 *.pbxuser
@@ -49,7 +18,28 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+xcuserdata
 
 ## Other
+*.xccheckout
 *.moved-aside
+*.xcuserstate
+*.xcscmblueprint
 
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+.build/
+.swiftpm
+
+# Carthage
+Carthage/Build
+.UlyssesRoot
+.Ulysses-Settings.plist
+.Ulysses-Group.plist

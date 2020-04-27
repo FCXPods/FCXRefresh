@@ -30,7 +30,7 @@
     [self addSubview:_statusLabel];
     
     //箭头图片
-    _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fcx_arrow"]];
+    _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fcx_arrow" inBundle:    [NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil]];
     _arrowImageView.frame = CGRectMake(width/2.0 - 80, 11, 15, 40);
     [self addSubview:_arrowImageView];
     
@@ -150,6 +150,7 @@
     _arrowImageView.hidden = YES;
     [_activityView startAnimating];
     _arrowImageView.transform = CGAffineTransformMakeRotation(0.000001 - M_PI);
+    _statusLabel.text = self.loadingStateText;
     [UIView animateWithDuration:0.2 animations:^{
         UIEdgeInsets inset = _scrollView.contentInset;
         inset.bottom += (FCXHandingOffsetHeight + self.loadMoreBottomExtraSpace);

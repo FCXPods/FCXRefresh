@@ -7,12 +7,7 @@
 //
 
 #import "RefreshTableViewController.h"
-#import "UIScrollView+FCXRefresh.h"
-#import "FCXRefreshHeaderView.h"
-#import "FCXRefreshFooterView.h"
-#import "FCXRefreshDotAnimationHeaderView.h"
-#import "FCXRefreshDotPathAnimationHeaderView.h"
-
+#import <FCXRefresh/FCXRefresh.h>
 
 static NSString *const RefreshCellReuseId = @"RefreshCellReuseId";
 NSInteger PageCount = 20;

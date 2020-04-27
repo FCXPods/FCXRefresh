@@ -37,7 +37,7 @@
     [self addSubview:_timeLabel];
     
     //箭头图片
-    _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fcx_arrow"]];
+    _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fcx_arrow" inBundle:    [NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil]];
     _arrowImageView.frame = CGRectMake(width/2.0 - 100, (FCXHandingOffsetHeight - 40)/2.0 + 5, 15, 40);
     [self addSubview:_arrowImageView];
     

@@ -8,8 +8,7 @@
 
 #import "TableViewController.h"
 #import "RefreshTableViewController.h"
-#import "UIScrollView+FCXRefresh.h"
-#import "FCXRefreshHeaderView.h"
+#import <FCXRefresh/FCXRefresh.h>
 
 static NSString *const CellReuseId = @"cellReuseId";
 
