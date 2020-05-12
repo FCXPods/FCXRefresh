@@ -1,7 +1,12 @@
 # FCXRefresh
 
+[![CocoaPods compatible](https://img.shields.io/cocoapods/v/FCXRefresh.svg)](http://cocoadocs.org/docsets/FCXRefresh/)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Platform](http://img.shields.io/cocoapods/p/FCXRefresh.svg?style=flat)](https://github.com/FCXPods/FCXRefresh)
 
-简单的上下拉刷新控件，主要包含以下功能：
+[FCXRefresh](https://github.com/FCXPods/FCXRefresh)是一个使用OC编写、用于上下拉刷新的控件。
+
+## 特性
 
 - [x] 普通上下拉刷新
 - [x] 自动下拉刷新
@@ -83,6 +88,8 @@ _refreshFooterView.pullingPercentHandler = ^(CGFloat pullingPercent) {
 
 ## 显示效果：
 
-![](refreshGif.gif)
+![FCXRefresh.gif](https://raw.githubusercontent.com/FCXPods/FCXRefresh/master/FCXRefresh.gif)
 
+## License
 
+FCXRefresh is released under the MIT license. See [LICENSE](https://github.com/FCXPods/FCXRefresh/blob/master/LICENSE) for details.
