@@ -2,10 +2,7 @@
 Pod::Spec.new do |s|
   s.name         = "FCXRefresh"
   s.version      = "0.1.6"
-  s.summary      = "上下拉刷新."
-  s.description  = <<-DESC
-		提供简便的上下拉刷新，支持自定义，只需简单的两三行代码即可.
-                   DESC
+  s.summary      = "An easy way to use pull-to-refresh and loading-more"
   s.homepage     = "https://github.com/FCXPods/FCXRefresh"
   s.license      = "MIT"
   s.author             = { "fengchuanxiang" => "fengchuanxiang@126.com" }
